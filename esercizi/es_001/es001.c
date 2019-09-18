@@ -26,11 +26,11 @@ void loadTabFromFile(char n[], Game list[]);
 
 main(){
     //definizione di variabili
-    char filename[NAME] = "vgsales.csv";
+    char fileN[NAME] = "vgsales.csv";
     Game list[NGAMES];  //creo la tabella
 
     //carico la tabella da file
-    loadTabFromFile(filename,list);
+    loadTabFromFile(fileN,list);
 }
 
 void loadTabFromFile(char n[], Game list[]){
@@ -44,7 +44,7 @@ void loadTabFromFile(char n[], Game list[]){
         printf("File %s inesistente\n" , n);
         getch();
     }else{
-        while(strchr(fp,",")!=EOF){
+        while(fgets(fp,"%d")!=EOF){            //controllo!!
 
         }
     }
