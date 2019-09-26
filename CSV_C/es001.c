@@ -42,16 +42,16 @@ int main(){
 
 void loadTabFromFile(char n[], Game list[]){
     FILE *fp;
-    int k=1;
+    int k=0;
     char buffer[NAME];
 
-    fp = fopen(n,"r");
+    fp = fopen("vgsales.csv","r");
 
     if(fp==NULL){
         printf("File %s inesistente\n" , n);
     }else{
         //inizio il ciclo per la copiatura del file in un vettore di strutture
-        //while(fgets(buffer, BSIZE, fp)){
+        while(fgets(buffer, BSIZE, fp)){
             if(k==0){
                 k=0;   //salto la prima riga
             }else{
@@ -67,9 +67,8 @@ void loadTabFromFile(char n[], Game list[]){
                 list[k].Other_Sales = atoi(strtok(NULL, DELIM));
                 list[k].Global_Sales = atoi(strtok(NULL, DELIM));
                 k++;
-                printf("%s", list[k].name);
             }
-       // }
+        }
     }
     fclose(fp);
 }
