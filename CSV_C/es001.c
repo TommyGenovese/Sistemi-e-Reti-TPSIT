@@ -25,8 +25,9 @@ const char SEP = ','; //carattere separatore
 //prototipi
 void loadTabFromFile(char n[], Game list[]);
 
-main(){
+int main(){
     //definizione di variabili
+    printf("ciao");
     char fileN[NAME] = "vgsales.csv";
     Game list[NGAMES];  //creo la tabella
 
@@ -49,17 +50,17 @@ void loadTabFromFile(char n[], Game list[]){
         getch();
     }else{
         while(fgets(fp, "s", list)!=NULL){
-            list[k].rank=(int)strtok(list, DELIM);
-            list[k].name[NAME]=(char)strtok(NULL, DELIM);
-            list[k].platform[NAME]=(char)strtok(NULL, DELIM);
-            list[k].year=(int)strtok(NULL, DELIM);
-            list[k].genre[NAME]=(char)strtok(NULL, DELIM);
-            list[k].publisher[NAME]=(char)strtok(NULL, DELIM);
-            list[k].NA_Sales=(float)strtok(NULL, DELIM);
-            list[k].EU_Sales=(float)strtok(NULL, DELIM);
-            list[k].JP_Sales=(float)strtok(NULL, DELIM);
-            list[k].Other_Sales=(float)strtok(NULL, DELIM);
-            list[k].Global_Sales=(float)strtok(NULL, DELIM);
+            list[k].rank=atoi(strtok(list, DELIM));
+            list[k].name[NAME]=atoi(strtok(NULL, DELIM));
+            list[k].platform[NAME]=atoi(strtok(NULL, DELIM));
+            list[k].year=atoi(strtok(NULL, DELIM));
+            list[k].genre[NAME]=atoi(strtok(NULL, DELIM));
+            list[k].publisher[NAME]=atoi(strtok(NULL, DELIM));
+            list[k].NA_Sales=atoi(strtok(NULL, DELIM));
+            list[k].EU_Sales=atoi(strtok(NULL, DELIM));
+            list[k].JP_Sales=atoi(strtok(NULL, DELIM));
+            list[k].Other_Sales=atoi(strtok(NULL, DELIM));
+            list[k].Global_Sales=atoi(strtok(NULL, DELIM));
         }
 
     }
