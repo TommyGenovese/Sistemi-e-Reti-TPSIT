@@ -25,17 +25,31 @@ const char SEP = ','; //carattere separatore
 
 //prototipi
 void loadTabFromFile(char n[], Game list[]);
-void visualizeInfoGame(Game list[]);
+void visualizeInfoGame(Game list[], int n);
 
 int main(){
     //definizione di variabili
-    printf("ciao");
+
+    int n, l;
     char fileN[NAME] = "vgsales.csv";
+    char answer;
     Game list[NGAMES];  //creo la tabella
 
+
     //carico la tabella da file
+    
+    printf("inizio");
+    scanf("%d", l);
+
     loadTabFromFile(fileN,list);
-    visualizeInfoGame(list);
+    printf("Do you wanna know which is the most popular game?\n");
+    scanf("%c", answer);
+    printf("%c", answer);
+    if(answer=='s' || answer=='S'){
+      printf("c\n");
+      visualizeInfoGame(list, n);
+    }
+
 
 }
 
@@ -55,6 +69,7 @@ void loadTabFromFile(char n[], Game list[]){
             if(k==0){
                 k=0;   //salto la prima riga
             }else{
+
                 list[k].rank = atoi(strtok(buffer, DELIM));
                 list[k].name[NAME] = strtok(NULL, DELIM);
                 list[k].platform[NAME] = strtok(NULL, DELIM);
@@ -69,13 +84,22 @@ void loadTabFromFile(char n[], Game list[]){
                 k++;
             }
         }
+        printf("Ho letto il file");
     }
     fclose(fp);
 }
 
-void visualizeInfoGame(Game list[]){
-    int n;
-    printf("inserisci il numero del gioco");
-    scanf("%d", n);
-    printf("il nome del giorco è:%s, è per %s, uscito nel %d, di genere %s, dalla %s", list[n].name, list[n].platform, list[n].year, list[n].genre, list[n].publisher);
+void visualizeInfoGame(Game list[], int n){
+    int k;
+    int cont=0;
+    float max=0;
+    printf("c\n");
+    for(k=0; k<n; k++){
+      printf("c\n");
+      if(list[k].Global_Sales>list[k+1].Global_Sales){
+        max=list[k].Global_Sales;
+        cont=k;
+      }
+    }printf("The most popular game is %s", list[cont].name);
+
 }
