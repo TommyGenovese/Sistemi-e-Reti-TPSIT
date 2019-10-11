@@ -8,14 +8,14 @@
 #define NAME 30     //numero di caratterri per il nome del gioco
 const char SEP = ','; //carattere separatore
 
-//definisco la struttura
+//definisco la strutturaww
     typedef struct game{
         int rank;
-        char* name[NAME];
-        char* platform[NAME];
+        char* name;
+        char* platform;
         int year;
-        char* genre[NAME];
-        char* publisher[NAME];
+        char* genre;
+        char* publisher;
         float NA_Sales;
         float EU_Sales;
         float JP_Sales;
@@ -39,14 +39,12 @@ int main(){
     //carico la tabella da file
     
     printf("inizio");
-    scanf("%d", l);
 
     loadTabFromFile(fileN,list);
-    printf("Do you wanna know which is the most popular game?\n");
-    scanf("%c", answer);
-    printf("%c", answer);
+    n=NGAMES;
+    printf("Do you wanna know which is the most popular game in America?\n");
+    scanf("%c", &answer);
     if(answer=='s' || answer=='S'){
-      printf("c\n");
       visualizeInfoGame(list, n);
     }
 
@@ -57,6 +55,7 @@ int main(){
 void loadTabFromFile(char n[], Game list[]){
     FILE *fp;
     int k=0;
+    char primaR[NGAMES];
     char buffer[NAME];
 
     fp = fopen("vgsales.csv","r");
@@ -65,41 +64,37 @@ void loadTabFromFile(char n[], Game list[]){
         printf("File %s inesistente\n" , n);
     }else{
         //inizio il ciclo per la copiatura del file in un vettore di strutture
+        fgets(primaR, BSIZE, fp); 
         while(fgets(buffer, BSIZE, fp)){
-            if(k==0){
-                k=0;   //salto la prima riga
-            }else{
-
-                list[k].rank = atoi(strtok(buffer, DELIM));
-                list[k].name[NAME] = strtok(NULL, DELIM);
-                list[k].platform[NAME] = strtok(NULL, DELIM);
-                list[k].year = atoi(strtok(NULL, DELIM));
-                list[k].genre[NAME] = strtok(NULL, DELIM);
-                list[k].publisher[NAME] = strtok(NULL, DELIM);
-                list[k].NA_Sales = atoi(strtok(NULL, DELIM));
-                list[k].EU_Sales = atoi(strtok(NULL, DELIM));
-                list[k].JP_Sales = atoi(strtok(NULL, DELIM));
-                list[k].Other_Sales = atoi(strtok(NULL, DELIM));
-                list[k].Global_Sales = atoi(strtok(NULL, DELIM));
-                k++;
-            }
+            list[k].rank = atoi(strtok(buffer, DELIM));
+            list[k].name = strtok(NULL, DELIM);
+            list[k].platform = strtok(NULL, DELIM);
+            list[k].year = atoi(strtok(NULL, DELIM));
+            list[k].genre = strtok(NULL, DELIM);
+            list[k].publisher = strtok(NULL, DELIM);
+            list[k].NA_Sales = atof(strtok(NULL, DELIM));
+            list[k].EU_Sales = atof(strtok(NULL, DELIM));
+            list[k].JP_Sales = atof(strtok(NULL, DELIM));
+            list[k].Other_Sales = atof(strtok(NULL, DELIM));
+            list[k].Global_Sales = atof(strtok(NULL, DELIM));
+            k++;
         }
-        printf("Ho letto il file");
+        printf("\nHo letto il file\n");
     }
     fclose(fp);
 }
 
 void visualizeInfoGame(Game list[], int n){
+    printf("visualizeINfoGame");
     int k;
     int cont=0;
     float max=0;
-    printf("c\n");
     for(k=0; k<n; k++){
-      printf("c\n");
-      if(list[k].Global_Sales>list[k+1].Global_Sales){
-        max=list[k].Global_Sales;
+      if(list[k].NA_Sales > max){
+        max=list[k].NA_Sales;
         cont=k;
       }
-    }printf("The most popular game is %s", list[cont].name);
+    }
+    printf("\nThe most popular game in America is %s\n\n", list[cont].name);
 
 }
