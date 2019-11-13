@@ -1,5 +1,5 @@
 /*
-Autore: Gabriele bagnis
+Autore: Genovese Tommaso
 Data: 30/10/2019
 Es 5 puntatori: Scrivi un programma in modo da memorizzare dei contatti in un ordine deciso dall'utente utilizzando una struttura autoreferenziata
 */

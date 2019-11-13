@@ -1,5 +1,5 @@
 /*
-Autore: Gabriele bagnis
+Autore: Genovese Tommaso
 Data: 26/09/2019
 Es Csv: Creare un programma in linguaggio C che legga il file vgsales.csv e lo importi in un array di strutture.
 Ogni riga contiene i campi separati da virgole, per cui puo' essere comodo creare una funzione split

@@ -1,5 +1,5 @@
 /*
-Autore: Gabriele bagnis
+Autore: Genovese Tommaso
 Data: 22/10/2019
 Es 4 puntatori: Write a program in C to show a pointer to an array which contents are pointer to structure.
 */

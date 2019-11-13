@@ -1,21 +1,24 @@
 /*
 Autore: Genovese Tommaso
-Data: 30/10/2019
-Es 1 liste: crea una lista e la stampa
+Data: 12/11/2019
+Es 4 liste: Definire una funzione deallocaLista che riceve una ListaDiElementi e ne dealloca tutti gli elementi. 
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-struct El{          //autoreferenziale
+struct El{
     int valore;
     struct El* next;
 };
+
+void deallocaLista(struct El* l); 
 
 int main(){
     int n;
     struct El* lista;   //puntatore al primo elemento
     struct El* l;       //serve per scorrere la lista
+    int num;
     lista=NULL; //assegno il valore NULL al puntatore per indicare che non punta nulla
 
     do{
@@ -37,12 +40,19 @@ int main(){
     } while (n>=0);
 
     l=lista; //porto l all'inizio della lista
-    printf("numeri inseriti: \n");
-    while (l!=NULL){    //ripeto finchè esiste un elemento successivo
-        printf("%d - %p \n",l->valore, l->next);    //stampo il valore dell'elemento della lista e l'indirizzo del successivo
-        l=l->next; //passo all'elemento successivo della lista
-    }
+    deallocaLista(lista);
     printf("\n");
     fflush(stdin);
+    getch();
     return 0;
  }
+
+void deallocaLista(struct El* l){   //gli passo l'inizio lista
+    if(l!=NULL){    //ripeto finchè esiste un elemento successivo
+        l=l->next; //passo all'elemento successivo della lista
+        deallocaLista(l); //passo all'elemento successivo
+    }
+    free(l);    //libero l'elemento della lista
+    printf("controllo");
+    return;
+}

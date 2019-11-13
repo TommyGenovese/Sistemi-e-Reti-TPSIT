@@ -1,5 +1,5 @@
 /*
-Autore: Gabriele bagnis
+Autore: Genovese Tommaso
 Data: 16/10/2019
 Es 1 puntatori: Write a program in C to store n elements in an array and print element using pointer
 */

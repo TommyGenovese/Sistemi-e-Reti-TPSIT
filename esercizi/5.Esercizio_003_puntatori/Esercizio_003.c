@@ -1,5 +1,5 @@
 /*
-Autore: Gabriele bagnis
+Autore: Genovese Tommaso
 Data: 22/10/2019
 Es 3 puntatori: Write a program in C to Calculate the length of the string using a pointer.
 */

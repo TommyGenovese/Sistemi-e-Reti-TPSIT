@@ -1,5 +1,5 @@
 /*
-Autore: Gabriele bagnis
+Autore: Genovese Tommaso
 Data: 16/10/2019
 Es 2 puntatori: Write a program in C to find the largest element using Dynamic Memory Allocation.
 */

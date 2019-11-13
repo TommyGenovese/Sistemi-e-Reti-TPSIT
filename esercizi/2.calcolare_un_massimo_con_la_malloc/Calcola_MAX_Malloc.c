@@ -1,5 +1,5 @@
 /*
-Autore: Gabriele bagnis
+Autore: Genovese Tommaso
 Data: 26/09/2019
 Es Malloc: Creare un programma che calcoli un massimo tra n numeri utilizzando la malloc
 */
