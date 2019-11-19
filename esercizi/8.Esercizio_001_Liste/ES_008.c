@@ -16,7 +16,7 @@ int main(){
     int n;
     struct El* lista;   //puntatore al primo elemento
     struct El* l;       //serve per scorrere la lista
-    lista=NULL; //assegno il valore NULL al puntatore per indicare che non punta nulla
+    lista=NULL;         //assegno il valore NULL al puntatore per indicare che non punta nulla
 
     do{
         printf("Inserisci un naturale o -1 per terminare\n");
