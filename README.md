@@ -1,2 +1,2 @@
-# Sistemi-e-Reti-TPSIT
-Appunti, esercitazioni e file di queste materie
+#TPSIT
+esercitazioni e file di questa materia
