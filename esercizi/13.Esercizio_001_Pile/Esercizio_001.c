@@ -13,14 +13,38 @@ struct El{
 };
 
 int main(){
+    struct El* head;
+    struct El* element;
+    char stringa[1000;]
     float num;
     int cifra;
-    char element;
-    
-   printf("inserisci il numero: ");
-   scanf("%d\n", &cifra);
-   *element = cifra;
-   push(*head, *element);
+    int i=0;
+
+    do{
+        element = (struct El*) malloc(sizeof(struct El));
+        element -> calore = stringa[i];
+        i++;
+        if(head = NULL){
+            push(&head, element)
+        }else{
+            if(head->valore == '{' && element->valore == '}'){
+                item = pop(&head);
+            }else{
+                
+            }
+            if(head->valore == '[' && element->valore == ']'){
+                item = pop(&head);
+            }else{
+
+            }
+            if(head->valore == '(' && element->valore == ')'){
+
+            }else{
+                
+            }
+        }
+
+    }
    
 }
 
