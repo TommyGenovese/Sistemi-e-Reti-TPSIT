@@ -15,16 +15,18 @@ struct El{
     struct El* next;
 }El;
 
+//funzione che controlla se una coda è vuota oppore no
+bool is_empty(struct El* head){
+    return (head==NULL) ? true: false;
+}
+
 //funzione che inserisce un elemento in una coda
 void enqueue(struct El** head, struct El** tail, struct El* element){
-    if(&head == NULL){ 
-        printf("primo if\n");
+    if(is_empty(*head)){ 
         *head = element;
     }else{
         (*tail)->next = element;
-        printf("primo else\n");
     }
-    printf("finito controllo\n");
     *tail = element;
     element->next = NULL;
 }
@@ -33,7 +35,7 @@ void enqueue(struct El** head, struct El** tail, struct El* element){
 struct El* dequeue(struct El** head, struct El** tail){
     struct El* ret = *head;
 
-    if(&head == NULL) return NULL;
+    if(is_empty(*head)) return NULL;
     else *head = ret->next;
 
     if(*head == NULL) *tail = NULL;
@@ -43,20 +45,23 @@ struct El* dequeue(struct El** head, struct El** tail){
 
 int main(){
     struct El* tail = (struct El*) malloc(sizeof(struct El));    //puntatore alla coda
-    struct El* head = NULL;    //putatore alla testa
+    struct El* head = (struct El*) malloc(sizeof(struct El));    //putatore alla testa
+    head = NULL;
     struct El* element; //numero dell'utente
     int numero = 0;
     char risp = 's';  //risposta dell'utente
+    int n = 0;  //numero di elementi nella coda
 
     //continuo a chiedere numeri al'utente fa inserire nella coda
     do{
         system("cls");
 
-        //carico il numero nella struttura
+        if(is_empty(head)) printf("testa vuota\n");
+
+        //chiedo il numero e lo carico nella struttura
         printf("numero:\t");
         scanf("%d" , &numero);
-        //printf("numero = %d" , numero);
-        printf("%p" , &head);
+        printf("\n%p" , head);
         element = (struct El*) malloc(sizeof(struct El));
         element->valore = numero;   
 
@@ -64,12 +69,19 @@ int main(){
         enqueue(&head, &tail, element);
 
         //cheido vuole inserire altri numeri
-        printf("%p" , head);
+        printf("\n%p" , head);
         printf("\n\nAltri numeri? (s/n)  ");
         fflush(stdin);
         scanf("%c" , &risp);
-    }while(risp == 's' && risp == 'S');
 
-    printf("|CARICAMENTO COMPLETATO|");
+        n++;
+    }while(risp == 's' || risp == 'S');
+
+    printf("\n|PRINTO LA LISTA|\n");
+
+    //stampo gli elementi nella coda
+    for(int i = 0; i<n ; i++){
+        printf("%d" , dequeue(&head,&tail)->valore);
+    }
     return 0;
 }
