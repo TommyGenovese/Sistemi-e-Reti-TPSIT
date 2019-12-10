@@ -23,6 +23,8 @@ void enqueue(struct El** head, struct El** tail, struct El* element){
     element->next = NULL;
 }
 
+
+
 //funzione che toglie il primo elemento di una coda
 struct El* dequeue(struct El** head, struct El** tail){
     struct El* ret = *head;
@@ -32,6 +34,8 @@ struct El* dequeue(struct El** head, struct El** tail){
     if(*head == NULL) *tail = NULL;
     return ret;
 }
+
+
 
 //funzione che inserisce un elemento in una pila
 void push(struct El** head, struct El* element){
@@ -44,6 +48,8 @@ void push(struct El** head, struct El* element){
     }
 }
 
+
+
 //funzione che toglie un elemento dalla pila
 struct El* pop(struct El** head){
     struct El* ret = *head;
@@ -51,6 +57,10 @@ struct El* pop(struct El** head){
     else *head = ret->next;
     return ret; 
 }
+
+
+
+
 
 int main(){
     //creo la coda e la testa (inizializzata a NULL)
@@ -60,7 +70,7 @@ int main(){
 
     //strutture che contiene il numero 
     struct El* element; //numero dell'utente
-    int numero = 0; //numero preso da tastiera
+    int num = 0; //numero preso da tastiera
 
     //pila
     struct El* pil;
@@ -70,7 +80,7 @@ int main(){
 
     //continuo a chiedere numeri al'utente fa inserire nella coda
     do{
-
+        
     }while();
 
     return 0;
