@@ -1,7 +1,7 @@
 /*
 Autore: Genovese Tommaso
 Data: 19/11/2019
-Es 1 pile: crea una lista e la stampa
+Es 1 pile: crea una pila e la stampa
 */
 
 #include <stdio.h>
@@ -15,14 +15,14 @@ struct El{
 int main(){
     struct El* head;
     struct El* element;
-    char stringa[1000;]
+    char stringa[1000];
     float num;
     int cifra;
     int i=0;
 
     do{
         element = (struct El*) malloc(sizeof(struct El));
-        element -> calore = stringa[i];
+        element -> valore = stringa[i];
         i++;
         if(head = NULL){
             push(&head, element)
@@ -44,7 +44,7 @@ int main(){
             }
         }
 
-    }
+    }while()
    
 }
 
