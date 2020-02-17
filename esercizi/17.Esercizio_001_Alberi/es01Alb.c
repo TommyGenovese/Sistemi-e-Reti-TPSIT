@@ -5,11 +5,11 @@
 
 /* definizione di albero */
 typedef struct nodo {
-  	double radice;
-  	struct nodo *sx;
+  double radice;
+  struct nodo *sx;
 	struct nodo *dx;
 }NODO;
-typedef struct NODO *Albero;
+typedef struct NODO* Albero;
 
 Albero costruisci(Albero,int);
 void StampaAlbero(Albero);
@@ -37,19 +37,21 @@ void StampaAlbero(Albero);
 	}
 }*/
 
-Albero costruisci(Albero a,int n){
-        srand(time(NULL));
-        int i;
-        if(n==0)
-          a=NULL;
-        else{
-          for(i=1;i<=n;i++)     
-          a=(NODO*)malloc(sizeof(NODO));
-          (*a)->radice=(rand()%20)-20;
-          a->sx->radice=(a->sx,i);
-          a->dx->radice=(a->dx,i);
-          }
-        return a;
+Albero costruisci(Albero* a,int n){
+  srand(time(NULL));
+  int i;
+  Albero* new;
+  if(n==0)
+    a=NULL;
+  else{
+    for(i=1;i<=n;i++){    
+      new=(Albero)malloc(sizeof(Albero));
+      new->radice=(rand()%20)-20;
+      new->sx->radice=(new->sx,i);
+      new->dx->radice=(new->dx,i);
+    }
+    return new;
+  }
 } 
 
 // stampa in ordine dell'albero a
@@ -58,7 +60,6 @@ void StampaAlbero(Albero a) {
     printf("()");
     return;
   }
-
   printf("( %d ", a->radice);
   StampaAlbero(a->sx);
   StampaAlbero(a->dx);
@@ -66,11 +67,13 @@ void StampaAlbero(Albero a) {
 }
 
 int main(){
-    Albero a;
+    Albero* a;
+    a = (Albero*) malloc(sizeof(Albero));
+    
     int n,i;
     printf("Quanti elementi devono essere inseriti?\n");
     scanf("%d",&n);
-    a=costruisci(a,n);
+    a=costruisci(&a,n);
     StampaAlbero(a);
     // system("pause");
 }
