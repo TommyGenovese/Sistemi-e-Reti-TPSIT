@@ -14,7 +14,6 @@ def validate():
     hashed_psw = hashed_psw.hexdigest()
     print(f"hashed password: {hashed_psw}")
 
-    #validazione password senza hash
     conn = sqlite3.connect("static/psw.db")
     cur= conn.cursor()
     cur.execute("SELECT * FROM users WHERE Username='" + username +"'")
@@ -30,30 +29,8 @@ def validate():
         else:
             return "Password incorrect"
 
-    #validazione password con hash
-    """
-    with sqlite3.connect('static/psw.db') as conn:
-        cur = conn.cursor()
-        #seleziona il numero di utenti
-        cur.execute("SELECT * FROM users")
-        rows = cur.fetchall()
-        for row in rows:
-            #utente è nella prima colonna
-            UserDB = row[0]
-            #password è nella seconda colonna
-            PassDB = row[1]
-            
-            #controllo 
-            if UserDB == username:
-                user_psw = hashlib.md5()
-                user_psw.update(password.encode('utf-8'))
-                user_psw = user_psw.hexdigest()
-                completion = controlla_psw(PassDB, user_psw)
-    return completion
-    """
 
-
-@app.route("/")             #http://127.0.0.1:6000/
+@app.route("/")             #http://127.0.0.1:5000/
 def main():
     print("Main")
     return render_template("index.html")
@@ -64,4 +41,4 @@ def login():
     return render_template('login.html')
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", debug=True)
+    app.run(host="127.0.0.1", debug=False)
