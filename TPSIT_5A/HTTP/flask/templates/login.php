@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="../static/images/logo.ico">
+    <link rel="shortcut icon" href="../static/images/logo.png">
     <style type="text/css">
         box-grad{
             background-image: linear-gradient(top bottom, #FFFFFF 0%, #AACFEF 100%);
@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="nav-content">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a href="index.html" class="nav-link" style="font-size: 20px;">Home</a>
+                        <a href="../" class="nav-link" style="font-size: 20px;">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="#fit" class="nav-link" style="font-size: 20px;">Centro Fitness</a>
@@ -59,7 +59,7 @@
                         <a href="#" class="nav-link" style="font-size: 20px;">Dove siamo?</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link" style="font-size: 20px;">Login</a>
+                        <a href="login" class="nav-link" style="font-size: 20px;">Login</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -72,7 +72,18 @@
     </div>
     <br>
     <div class = "container">
-        <p>You're logged in</p>
+        <div class="input-group-text flex-nowrap">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="">
+                <input type="text" class="form-control" name="InputUsername" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                <input type="password" class="form-control" name="InputPassword" placeholder="Password" aria-label="Password" aria-describedby="h">
+                <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Invio</button>
+            </form>
+            <form action="logged.php" method="POST">
+                <input type="text" name="InputUsername" placeholder="Username" /><br>
+                <input type="password" name="InputPassword" placeholder="Password" /><br>
+                <input type="submit" value="LogIn"/>
+            </form>
+        </div>
     </div>
 </body>
 </html>

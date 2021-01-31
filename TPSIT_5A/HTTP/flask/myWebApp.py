@@ -25,10 +25,9 @@ def validate():
         db_psw = db_psw.fetchall()
         print (f"{db_psw[0][1]}\n{hashed_psw}")
         if db_psw[0][1] == hashed_psw:
-            return render_template('logged.html')
+            return render_template('logged.html') ###
         else:
             return "Password incorrect"
-
 
 @app.route("/")             #http://127.0.0.1:5000/
 def main():
@@ -39,6 +38,15 @@ def main():
 def login():
     print("Login")
     return render_template('login.html')
+
+
+#delateble #Set the name of the person on the site view
+@app.route("/logged", methods=['GET','POST'])
+def logged():
+    name = request.args.get("name")
+    return render_template('logged.html', name=name)
+
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", debug=False)
