@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import sqlite3, hashlib
-
+#add log
 app = Flask(__name__)
 
 @app.route('/login', methods=['POST'])
@@ -22,22 +22,30 @@ def validate():
     data = cur.fetchone()
     if data is None:
         #error1 ="Not exists user"
-        return "Warning❗, this user does not exists"
+        return "Warning, this user does not exists"
         #return render_template('login.html', error=error1)
     else:
         db_psw = cur.execute("SELECT * FROM users WHERE Username='" + username +"'")
         db_psw = db_psw.fetchall()
         print (f"{db_psw[0][1]}\n{hashed_psw}")
         if db_psw[0][1] == hashed_psw:
+            conn.close()
             return render_template('logged.html') ###
         else:
             error ="Invalid credentials"
+            conn.close()
         return render_template('login.html', error=error)
 
+@app.route("/login", methods=['GET'])
+def login():
+    print("Login")
+    return render_template('login.html')
 
+
+#REGISTRAZIONE
 @app.route('/register', methods=['POST'])
 def reg():
-    print("SingUp")
+    print("SignUp")
     #lettura dati dal sito
     username = request.form['InputUsername']
     password = request.form['InputPassword']
@@ -62,20 +70,16 @@ def reg():
         error1 ="This user already exists"
     return render_template('register.html', error=error1)
 
+@app.route("/register", methods=['GET'])
+def register():
+    print("Register")
+    return render_template('register.html')
+
 @app.route("/")             #http://127.0.0.1:5000/
 def main():
     print("Main")
     return render_template("index.html")
 
-@app.route("/login", methods=['GET','POST'])
-def login():
-    print("Login")
-    return render_template('login.html')
-
-@app.route("/register", methods=['GET','POST'])
-def register():
-    print("Register")
-    return render_template('register.html')
 
 #delateble #Set the name of the person on the site view
 @app.route("/logged", methods=['GET','POST'])
