@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import time, alphabot
+
 #add log
 app = Flask(__name__)
 
@@ -45,4 +46,4 @@ def main():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", debug=True)
+    app.run(host="192.168.1.107", debug=True)

@@ -53,8 +53,10 @@
             <div class="col col-sm8">
             </div>
             <div class="col col-sm8">
+            </div>
+            <div class="col col-sm8">
                 <form method="POST">
-                    <input class="btn btn-warning btn-outline-success" value="Forward" style="width: 100px; height:100px;" type="submit" name="btn"/>
+                    <input class="btn btn-warning btn-outline-success" value="W" style="width: 50px; height: 50px;;" type="submit" name="btn"/>
                 </form>
             </div>
             <div class="col col-sm8">
@@ -81,19 +83,19 @@
             <div class="col col-sm8">
             </div>
             
-            <div class="col col-sm8">
+            <div class="col col-sm12">
                 <form method="POST">
-                    <input class="btn btn-warning btn-outline-success" value="Left" style="width: 100px; height:100px;" type="submit" name="btn"/>
+                    <input class="btn btn-warning btn-outline-success" value="A" style="width: 50px; height:50px;" type="submit" name="btn"/>
                 </form>
             </div>
             <div class="col col-sm8">
                 <form method="POST">
-                    <input class="btn btn-warning btn-outline-success" value="Backward" style="width: 100px; height:100px;" type="submit" name="btn"/>
+                    <input class="btn btn-warning btn-outline-success" value="S" style="width: 50px; height:50px;" type="submit" name="btn"/>
                 </form>
             </div>
             <div class="col col-sm8">
                 <form method="POST">
-                    <input class="btn btn-warning btn-outline-success" value="Right" style="width: 100px; height:100px;" type="submit" name="btn"/>
+                    <input class="btn btn-warning btn-outline-success" value="D" style="width: 50px; height:50px;" type="submit" name="btn"/>
                 </form>
             </div>
             <div class="col col-sm8">
@@ -104,6 +106,9 @@
             </div>
             <div class="col col-sm8">
             </div>
+        </div>
+        <div class="row">
+            <img id="bg" src="{{url_for('video_feed')}}">
         </div>
     </div>
 </body>
