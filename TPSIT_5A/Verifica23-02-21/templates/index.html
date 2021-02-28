@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        box-grad{
+            background-image: linear-gradient(top bottom, #FFFFFF 0%, #AACFEF 100%);
+        }
+    </style>
+    <title>Semaforo-Verifica</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+    
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-xl navbar-expand-lg navbar-expand-md navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="nav-content">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a href="" class="nav-link text-light" style="font-size: 20px;"><b>Verifica Flask, sql, Python3</b></a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="navbar-brand text-light" href="#">
+                    Tommaso Genovese
+                </a>
+            </nav>
+        </div>
+    </div>
+    <br>
+    <div class = "container">
+        <!--commands-->
+        <div class= "row">
+            <div class="col col-md-3">
+                <form class="form-inline my-2 my-lg-0" method="POST">
+                    Durata luce verde:
+                    <input type="text" class="form-control btn-success" name="DurVer" placeholder="secondi verde" aria-label="verde" aria-describedby="addon-wrapping">
+                    <br>
+                    Durata luce gialla:
+                    <input type="text" class="form-control btn-warning" name="DurGia" placeholder="secondi giallo" aria-label="giallo" aria-describedby="addon-wrapping">
+                    <br>
+                    Durata luce rossa:
+                    <input type="text" class="form-control btn-danger" name="DurRos" placeholder="secondi rosso" aria-label="rosso" aria-describedby="addon-wrapping">
+                    
+                    <label for="exampleFormControlSelect1">Stato semaforo</label>
+                    <br><br><br>
+                    <select class="form-control" id="exampleFormControlSelect1" name="stato">
+                        <option></option>
+                        <option>ON</option>
+                        <option>OFF</option>
+                    </select>
+                    <br><br>
+                    <button class="btn btn-outline-dark  my-2 my-sm-0" type="submit">Invio</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

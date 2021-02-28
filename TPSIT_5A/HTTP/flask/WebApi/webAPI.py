@@ -1,30 +1,17 @@
 from flask import Flask, render_template, redirect, url_for, request, jsonify
-import json
+import json, sqlite3
 
 app = Flask(__name__)
 
-
-books=[
-    {
-    'id':0,
-    'title': 'Il nome della Rosa',
-    'author': 'Umberto Eco'
-    },
-    {
-    'id': 1,
-    'title': 'Il problema dei tre corpi',
-    'author': 'Liu Cixin'
-    },
-    {
-    'id':2,
-    'title': 'Fondazione',
-    'author': 'Isacc Asimov'
-    }
-]
-
 @app.route('/api/books/all', methods=['GET'])
 def api_all():
-    return jsonify(books)
+    conn = sqlite3.connect("database.db")
+    cur= conn.cursor()
+    cur.execute("SELECT * FROM libri")
+    data = cur.fetchall()
+    print(data)
+    conn.close()
+    return jsonify(data)
 
 @app.route('/api/books', methods=['GET'])
 def api_id():
@@ -33,28 +20,48 @@ def api_id():
     else:
         return "Error: No id field provided. Please specify an id"
     
-    results = []
-
-    for book in books:
-        if book['id'] == id:
-            results.append(book)
+    conn = sqlite3.connect("database.db")
+    cur= conn.cursor()
+    cur.execute(f"SELECT * FROM libri WHERE id={id}")
+    dataID = cur.fetchall()
+    print(dataID)
+    conn.close()
     
-    return jsonify(results)
+    return jsonify(dataID)
 
 @app.route('/api/books/title', methods=['GET'])
 def api_title():
+    print(f"\n{request.args}\n")
     if 'title' in request.args:
         title = request.args['title']
     else:
         return "Error: No title field provided. Please specify an title"
     
-    results = []
-
-    for book in books:
-        if book['title'] == title:
-            results.append(book)
+    conn = sqlite3.connect("database.db")
+    cur= conn.cursor()
+    cur.execute(f"SELECT * FROM libri WHERE titolo='{title}'")
+    dataTIT = cur.fetchall()
+    print(dataTIT)
+    conn.close()
     
-    return jsonify(results)
+    return jsonify(dataTIT)
+
+@app.route('/api/books/author', methods=['GET'])
+def api_author():
+    print(f"\n{request.args}\n")
+    if 'author' in request.args:
+        author = request.args['author']
+    else:
+        return "Error: No author field provided. Please specify an author"
+    
+    conn = sqlite3.connect("database.db")
+    cur= conn.cursor()
+    cur.execute(f"SELECT * FROM libri WHERE author='{author}'")
+    dataAUT = cur.fetchall()
+    print(dataAUT)
+    conn.close()
+    
+    return jsonify(dataAUT)
 
 @app.route('/', methods=['GET'])
 def home():
