@@ -13,7 +13,7 @@ server_ip = "127.0.0.1"
 server_port = 7000
 
 def client():
-    robot = alpabot.AlphaBot()
+    robot = alphabot.AlphaBot()
 
     c = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
