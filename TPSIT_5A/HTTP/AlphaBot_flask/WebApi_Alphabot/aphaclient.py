@@ -9,11 +9,13 @@ import turtle
 import AlphaBot
 import time
 
+
+
 server_ip = "127.0.0.1"
 server_port = 7000
 
 def client():
-    robot = alphabot.AlphaBot()
+    robot = AlphaBot.AlphaBot()
 
     c = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
@@ -81,4 +83,5 @@ def client():
 
 
 if __name__ == "__main__":
+
     client()

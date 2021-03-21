@@ -11,6 +11,14 @@ class AlphaBot(object):
         self.ENA = ena
         self.ENB = enb
 
+        DR = 16
+        DL = 19
+
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+        GPIO.setup(DR,GPIO.IN,GPIO.PUD_UP)
+        GPIO.setup(DL,GPIO.IN,GPIO.PUD_UP)
+
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         GPIO.setup(self.IN1,GPIO.OUT)

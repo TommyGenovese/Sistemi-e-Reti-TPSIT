@@ -4,7 +4,7 @@ Date: 05-01-2021
 """
 
 import socket
-import threading
+from threading import Thread as th
 import turtle
 import AlphaBot
 import time
@@ -12,8 +12,15 @@ import time
 server_ip = "127.0.0.1"
 server_port = 7000
 
+DR = 16
+DL = 19
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(DR,GPIO.IN,GPIO.PUD_UP)
+GPIO.setup(DL,GPIO.IN,GPIO.PUD_UP)
+
 def client():
-    robot = alpabot.AlphaBot()
+    robot = AlphaBot.AlphaBot()
 
     c = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
