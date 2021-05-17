@@ -13,8 +13,6 @@ import time
 import requests
 from flask import request
 
-app = Flask(__name__)
-
 def main():
     while True:
         #chiedo ip all'utente

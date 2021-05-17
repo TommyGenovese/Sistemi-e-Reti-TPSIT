@@ -50,7 +50,7 @@ def reg():
     username = request.form['InputUsername']
     password = request.form['InputPassword']
     print(f"username: {username}, \npassword: {password}\n")
-    #fase di hashing
+    #fase di hashing  
     hashed_psw = hashlib.md5()
     hashed_psw.update(password.encode('utf-8'))
     hashed_psw = hashed_psw.hexdigest()
