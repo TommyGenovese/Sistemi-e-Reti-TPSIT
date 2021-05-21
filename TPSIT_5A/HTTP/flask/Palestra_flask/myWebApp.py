@@ -65,7 +65,7 @@ def reg():
         cur.execute(query)
         conn.commit()
         print(cur.rowcount, "record insert")
-        return render_template('logged.html')
+        return render_template('logged.html', nome=username)
     else:
         error1 ="This user already exists"
     return render_template('register.html', error=error1)
